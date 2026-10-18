@@ -1,0 +1,4 @@
+interface:
+  display_name: "Treatment Django Engineer"
+  short_description: "Build safe Django backend changes"
+  default_prompt: "Use $treatment-django-engineer to implement this backend change safely."

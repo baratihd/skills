@@ -1,0 +1,4 @@
+interface:
+  display_name: "Treatment Backend Planner"
+  short_description: "Plan safe Treatment backend changes"
+  default_prompt: "Use $treatment-backend-planner to create a safe implementation plan for this Django backend."

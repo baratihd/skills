@@ -1,0 +1,4 @@
+interface:
+  display_name: "Treatment Backend Testing"
+  short_description: "Design reliable backend regression tests"
+  default_prompt: "Use $treatment-backend-testing to add focused regression coverage for this change."

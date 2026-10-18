@@ -1,0 +1,15 @@
+/* Site chrome uses Persian RTL; documentation content is explicitly scoped by page. */
+.md-typeset .documentation-page.lang-fa { direction: rtl; text-align: right; }
+.md-typeset .documentation-page.lang-en { direction: ltr; text-align: left; }
+.md-typeset .documentation-page.lang-fa table { direction: rtl; }
+.md-typeset .documentation-page.lang-en table { direction: ltr; }
+.md-typeset .documentation-page.lang-fa table:not([class]) th:not([align]),
+.md-typeset .documentation-page.lang-fa table:not([class]) td:not([align]) { text-align: right; }
+.md-typeset .documentation-page.lang-en table:not([class]) th:not([align]),
+.md-typeset .documentation-page.lang-en table:not([class]) td:not([align]) { text-align: left; }
+.md-typeset .documentation-page pre,
+.md-typeset .documentation-page pre code,
+.md-typeset .documentation-page .highlight,
+.md-typeset .documentation-page .highlight pre,
+.md-typeset .documentation-page .mermaid { direction: ltr; text-align: left; unicode-bidi: isolate; }
+.md-typeset .documentation-page code { direction: ltr; unicode-bidi: isolate; }

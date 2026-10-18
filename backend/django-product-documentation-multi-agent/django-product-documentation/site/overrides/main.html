@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block extrahead %}
+  {{ super() }}
+  <script id="documentation-font-config" type="application/json">{{ config.extra.documentation_fonts | tojson }}</script>
+  <script src="{{ 'javascripts/fonts.js' | url }}"></script>
+{% endblock %}
+{% block header %}
+  {{ super() }}
+  <template id="documentation-font-settings">
+    {% include "partials/font-settings.html" %}
+  </template>
+{% endblock %}

@@ -1,0 +1,20 @@
+<details class="docs-font-settings" dir="rtl" lang="fa">
+  <summary class="md-header__button md-icon" title="تنظیم فونت" aria-label="تنظیم فونت">
+    {% include ".icons/material/format-font.svg" %}
+  </summary>
+  <div class="docs-font-settings__panel">
+    <strong>تنظیم فونت</strong>
+    {% for language, settings in config.extra.documentation_fonts.items() %}
+      <label for="docs-font-{{ language }}">{{ settings.label }}</label>
+      <select id="docs-font-{{ language }}" data-docs-font="{{ language }}" aria-describedby="docs-font-status-{{ language }} documentation-font-note">
+        {% for option in settings.options %}
+          <option value="{{ option.id }}" {% if option.id == settings.default %}selected{% endif %}>{{ option.label }}</option>
+        {% endfor %}
+      </select>
+      <p id="docs-font-status-{{ language }}" role="status" hidden></p>
+    {% endfor %}
+    <p id="documentation-font-note">Vazirmatn، Inter و Amiri از فایل‌های خود سایت بارگذاری می‌شوند. B Nazanin و Times New Roman فعلاً به نصب دستگاه وابسته‌اند.</p>
+    <p class="docs-font-settings__storage" role="status" hidden>ذخیره مرورگر در دسترس نیست؛ انتخاب فقط در این صفحه اعمال می‌شود.</p>
+    <button type="button" data-docs-font-reset>بازگشت به پیش‌فرض</button>
+  </div>
+</details>

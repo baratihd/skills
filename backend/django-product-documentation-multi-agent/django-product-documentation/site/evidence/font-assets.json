@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-16",
+  "download_authorized_by_user": true,
+  "web_assets": [
+    {
+      "file": "Amiri-Regular.ttf",
+      "family": "Amiri",
+      "bytes": 431116,
+      "sha256": "ab391c4147d054c48976e98322ad0eefe1427aa0e0502a12a4c75d80a70cfcd7",
+      "license": "SIL OFL 1.1",
+      "license_file": "Amiri-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/amiri/Amiri-Regular.ttf"
+    },
+    {
+      "file": "Amiri-Bold.ttf",
+      "family": "Amiri",
+      "bytes": 413480,
+      "sha256": "cfccb794268e7d573d857e6d6a67f89cf8a053e8ffd85dfa0c8ec1bb36fc4827",
+      "license": "SIL OFL 1.1",
+      "license_file": "Amiri-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/amiri/Amiri-Bold.ttf"
+    },
+    {
+      "file": "Vazirmatn-Variable.ttf",
+      "family": "Vazirmatn",
+      "bytes": 241328,
+      "sha256": "696249a2c74b39ffdef55de4df2809c5b639d3ff80d618d8160a095d2fd49dca",
+      "license": "SIL OFL 1.1",
+      "license_file": "Vazirmatn-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/vazirmatn/Vazirmatn%5Bwght%5D.ttf"
+    },
+    {
+      "file": "Inter-Variable.ttf",
+      "family": "Inter",
+      "bytes": 876576,
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+      "license": "SIL OFL 1.1",
+      "license_file": "Inter-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf"
+    },
+    {
+      "file": "JetBrainsMono-Regular.ttf",
+      "family": "JetBrains Mono",
+      "bytes": 114904,
+      "sha256": "b6b1ff4ddefe36d7f2a6174e1d001cab374e594519ee9049af028d577b64c5f5",
+      "license": "SIL OFL 1.1",
+      "license_file": "JetBrainsMono-OFL.txt",
+      "source": "Existing licensed local asset from preceding documentation theme task"
+    }
+  ],
+  "downloaded_not_published": [],
+  "license_evidence": {
+    "Amiri": "https://github.com/aliftype/amiri/blob/main/OFL.txt",
+    "Vazirmatn": "https://github.com/google/fonts/blob/main/ofl/vazirmatn/OFL.txt",
+    "Inter": "https://github.com/google/fonts/blob/main/ofl/inter/OFL.txt",
+    "Times New Roman": "https://corefonts.sourceforge.net/faq8.htm",
+    "Microsoft font redistribution": "https://learn.microsoft.com/en-us/typography/fonts/font-faq",
+    "B Nazanin": "No author-issued web redistribution grant found; third-party license labels conflict."
+  }
+}
