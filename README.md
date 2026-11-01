@@ -1,15 +1,29 @@
 # Treatment Agent Skills — English Usage Documentation
 
-This folder contains **six independent English Markdown guides** to add under `docs/agent-skills/` of the Treatment repository.
+This repository contains **seven independent agent skills** with English Markdown usage documentation.
 
 ## Guides
 
-- [django-product-documentation](./django-product-documentation.md)
-- [treatment-backend-planner](./treatment-backend-planner.md)
-- [treatment-backend-release-note](./treatment-backend-release-note.md)
-- [treatment-backend-testing](./treatment-backend-testing.md)
-- [treatment-django-engineer](./treatment-django-engineer.md)
-- [git-daily-word-report](./git-daily-word-report.md)
+- [django-product-documentation](./backend/django-product-documentation-multi-agent/django-product-documentation/README.md)
+- [treatment-backend-planner](./backend/treatment-backend-planner/README.md)
+- [treatment-backend-release-note](./backend/treatment-backend-release-note-multi-agent/README.md)
+- [treatment-backend-testing](./backend/treatment-backend-testing-multi-agent/treatment-backend-testing/README.md)
+- [treatment-django-engineer](./backend/treatment-django-engineer/README.md)
+- [git-daily-word-report](./common/git-daily-word-report-multi-agent/git-daily-word-report/README.md)
+- [scenario-test-tracker](./common/scenario-test-tracker-multi-agent/scenario-test-tracker/README.md) — Document new and modified Django/pytest test scenarios from Git changes in Persian Markdown.
+
+## Scenario test tracker
+
+`scenario-test-tracker` analyzes Git history, test assertions, fixtures/mocks, and existing documentation to produce an evidence-based report with two required sections: `تست‌های ایجادشده` and `تست‌های تغییر داده‌شده`. Each scenario includes Given/When/Then, expected results, code references, and verification status. By default, it performs static analysis without modifying application/test code or running tests; reading assertions does not establish that tests passed.
+
+```text
+Use $scenario-test-tracker.
+source_branch: feature/project-testing
+target_branch: development
+Document new and modified pytest test scenarios in Persian Markdown.
+```
+
+The default output is `docs/quality/test-scenarios/changes/<source-slug>--vs--<target-slug>.md`. Git refs, scope, and output path can be specified; `development` above is only an example, not a default. The skill works independently of `treatment-backend-testing` and `django-product-documentation` and has no special execution modes. See the [usage guide](./common/scenario-test-tracker-multi-agent/scenario-test-tracker/USAGE.md) for agent-specific invocation and optional parameters.
 
 ## Quick start
 
@@ -27,6 +41,7 @@ These usage guides are English, but the skills' established **output language po
 | django-product-documentation | Product/Business: Persian RTL; Technical/Quality: English LTR |
 | treatment-backend-release-note | Release notes in English; brief Persian business summary in chat only |
 | git-daily-word-report | Daily work reports in Persian |
+| scenario-test-tracker | Test scenario change reports in Persian Markdown; exact code identifiers and paths remain English/LTR |
 | Other skills | Follow their own SKILL.md |
 
 ## Verify skill paths on Linux
