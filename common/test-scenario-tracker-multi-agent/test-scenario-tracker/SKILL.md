@@ -1,5 +1,5 @@
 ---
-name: scenario-test-tracker
+name: test-scenario-tracker
 description: Analyze Django/pytest test changes from Git and generate evidence-based Persian Markdown documentation separating newly added test scenarios from modified existing tests, with code traceability, expected behavior and change details. Use when asked to document test additions or updates, compare branches, or publish test scenario changes.
 ---
 
@@ -11,7 +11,7 @@ Produce publication-ready **Persian** Markdown documenting tests **actually impl
 Read `references/analysis-policy.md` and `templates/scenario-report.md` before producing the report. `USAGE.md` is a human-facing usage guide, not the source of execution rules.
 
 ## Inputs and Git baseline
-1. Accept optional `source_branch`, `target_branch`, `base_ref`, explicit files/feature, and `output_path`. If not given, use HEAD as the source and ask for the comparison target only when no safe and unambiguous base exists; otherwise use the repository's configured default branch and disclose it. Never assume the target is `development` without evidence.
+1. Accept optional `source_branch`, `target_branch`, `base_ref`, explicit files/feature, and `output_path` (only when it remains inside the required output directory). If not given, use HEAD as the source and ask for the comparison target only when no safe and unambiguous base exists; otherwise use the repository's configured default branch and disclose it. Never assume the target is `development` without evidence.
 2. Verify refs and capture full commit SHAs. Use `git diff --name-status -M <target>...<source> --` plus content diffs. For working-tree requests include staged/unstaged changes explicitly, distinguishing these from committed changes. For exact-tip comparison when explicitly requested, use `target..source` and explain semantics.
 3. Include added, modified, renamed and relocated tests; detect renamed files with `-M`. Classify **new test case** vs **modified existing test case** by test identity and history, not merely file status. A new method inside an existing test file belongs under newly created; a changed existing method belongs under modified. Rename/move with unchanged behavior is a structural change, not automatically a changed scenario.
 4. Inspect actual class-based pytest tests, parametrization, fixtures, factories, builders, mock setup, assertions, expected errors, permissions, API results and database effects. Interpret `pytest.mark.parametrize` as multiple variations when meaningful. Inspect nearby code and available docs to validate expectations. Evidence beats guesses; when evidence is insufficient, mark **نیازمند تأیید** and state what is missing.
@@ -30,10 +30,14 @@ Read `references/analysis-policy.md` and `templates/scenario-report.md` before p
 - If tests were deleted (rather than created/modified), do not silently mislabel them. Mention them in a brief separate `یادداشت‌های خارج از دامنه` note, never a third main scenario section; report count and references. If no additions/changes, state none in the required section.
 
 ## Output and preservation
-1. Default repo-local destination: `docs/quality/test-scenarios/changes/<source-slug>--vs--<target-slug>.md`. Sanitize ref strings to safe filenames. If already present, update by stable test IDs and preserve unrelated manual material; do not blindly overwrite. Allow explicit output path from user.
-2. Do not write to production systems, use network or send SMS/Celery calls. Default is static Git/code analysis. Running pytest is optional only when explicitly requested or already supported by task context, and must follow the repository's testing safety policies.
-3. Save only the Persian publication-ready report. In the final chat, summarize counts, output file, compared refs, missing documentation, unresolved ambiguities, and which verification commands really ran.
-4. Final validation: both sections exist, all test identities are traceable, before/after changes are substantiated, links resolve where possible, RTL wrapper is balanced, no secrets or personal data leaked, no execution claims unsupported by logs.
+1. **Mandatory repository-local output directory:** `docs/product/test-scenarios/`. Never save the publication-ready report outside this directory, including when `output_path` is provided. If the requested path conflicts, explain the requirement and use the mandated directory.
+2. **Mandatory filename:** `<branch_slug>_<YYYY_MM_DD>.md` where `branch_slug` comes from the actual **source branch** (not the target branch). Replace each `/` with `_`, normalize other filename-unsafe separators to `_`, collapse repeated underscores, and disallow traversal, leading dots and empty slugs. Use the report-generation date in the repository/user's configured local timezone (fallback UTC), as four-digit year, month and day separated by underscores. Example: `feature/ticket-model` on `2026-11-01` -> `docs/product/test-scenarios/feature_ticket_model_2026_11_01.md`. Normalize hyphens to underscores as shown. Do not use the target branch in the filename.
+3. Determine the source branch explicitly from the supplied `source_branch` or the checked-out symbolic branch (e.g., `git symbolic-ref --short HEAD`). If HEAD is detached or the ref is ambiguous, request the source branch instead of inventing it. Validate the resolved filename remains within the mandatory directory.
+4. If the same daily branch report already exists, **update it incrementally** using stable test IDs and preserve unrelated manual content. Do not silently overwrite, duplicate scenarios, or remove the other required section. When multiple comparisons use the same branch/date, record the target branch and commit hashes in report metadata to distinguish baselines.
+5. Do not migrate or delete older report files automatically; report their previous locations if discovered.
+6. Do not write to production systems, use network or send SMS/Celery calls. Default is static Git/code analysis. Running pytest is optional only when explicitly requested or already supported by task context, and must follow the repository's testing safety policies.
+7. Save only the Persian publication-ready report. In the final chat, summarize counts, output file, compared refs, missing documentation, unresolved ambiguities, and which verification commands really ran.
+8. Final validation: both sections exist, all test identities are traceable, before/after changes are substantiated, links resolve where possible, RTL wrapper is balanced, no secrets or personal data leaked, no execution claims unsupported by logs.
 
 ## Execution flow
 - Read repository and relevant docs -> establish baseline -> identify changed test definitions -> inspect before/after test bodies -> extract assertions and expected behavior -> assemble two-section Persian report -> validate evidence and links -> report findings.

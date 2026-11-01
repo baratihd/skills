@@ -28,3 +28,11 @@ Do not run destructive Git commands, edit tests, introduce fixtures, commit, pus
 
 ## Comparisons
 `target...source` uses merge base; `target..source` uses two tips. In the report state the chosen comparison and exact SHAs. If source and target refs are the same or no tests changed, produce empty required sections rather than fabricated entries.
+
+## Output location and name (mandatory)
+
+- Write reports only to `docs/product/test-scenarios/`.
+- Use the source branch and report date: `<branch_slug>_<YYYY_MM_DD>.md`. Convert `/` and `-` into underscores. Example: `feature/ticket-model` + `2026-11-01` -> `feature_ticket_model_2026_11_01.md`.
+- Date refers to report generation in the configured local timezone, not the commit date.
+- Keep the two required Persian sections and update existing same-day branch reports without destroying manual edits.
+- Include source and comparison references in metadata even though the target does not appear in the filename.

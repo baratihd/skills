@@ -6,7 +6,7 @@ if [[ $# -ne 1 ]]; then
 fi
 ROOT="$(cd "$1" && pwd)"
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-NAME=scenario-test-tracker
+NAME=test-scenario-tracker
 SRC="$HERE/$NAME"
 DEST="$ROOT/.agents/skills/$NAME"
 if [[ ! -f "$SRC/SKILL.md" ]]; then echo "Missing $SRC/SKILL.md" >&2; exit 1; fi
